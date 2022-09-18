@@ -12,6 +12,91 @@
   </head>
 
   <body>
+
+        <header>
+    <nav class="navbar navbar-expand-lg navbar-dark  border-bottom">
+      <div class="container">
+
+
+
+        <a class="navbar-brand text-dark list-group-item">LOGO</a>
+                  <% if customer_signed_in? %>
+
+
+            <li class=" p-1 border  list-group-item">
+
+<%#            <%= link_to , class:"nav nav-link text-dark" do %>
+<%#            アイコン<i class=""></i>マイページ
+            <% end %>
+          </li>
+
+          <li class=" p-1 border  list-group-item">
+<%#            <%= link_to  users_path, class:"nav-link text-dark" do %>
+<%#            <i class="fas fa-users"></i>商品一覧
+            <% end %>
+          </li>
+
+          <li class=" p-1 border  list-group-item">
+<%#            <%= link_to  "/books", class:"nav-link text-dark" do %>
+<%#            <i class="fas fa-book-open"></i>カート
+            <% end %>
+          </li>
+
+          <li class=" p-1 border  list-group-item">
+<%#            <%= link_to destroy_user_session_path, method: :delete, class:" nav-link text-dark" do %>
+<%#            <i class="fas fa-sign-out-alt"></i>ログアウト
+            <% end %>
+          </li>
+
+          <% else %>
+
+          <%= render 'layouts/header' %>
+
+
+          <% end %>
+
+
+
+   <%#       <% if %>
+ <%#         <li class=" p-1  border  list-group-item ">
+<%#            <%= link_to , class:'nav-link text-dark' do %>
+<%#            <i class="fas fa-link"></i>商品一覧
+            <% end %>
+ <%#         </li>
+
+           <li class=" p-1  border  list-group-item ">
+<%#            <%= link_to , class:'nav-link text-dark' do %>
+<%#            <i class="fas fa-link"></i>会員一覧
+            <% end %>
+ <%#         </li>
+
+           <li class=" p-1  border  list-group-item ">
+<%#            <%= link_to , class:'nav-link text-dark' do %>
+<%#            <i class="fas fa-link"></i>注文履歴一覧
+            <% end %>
+  <%#        </li>
+
+          <li class=" p-1  border  list-group-item ">
+<%#            <%= link_to , class:'nav-link text-dark' do %>
+<%#            <i class="fas fa-link"></i>ジャンル一覧
+            <% end %>
+  <%#        </li>
+
+          <li class=" p-1  border  list-group-item ">
+<%#            <%= link_to , class:'nav-link text-dark' do %>
+<%#            <i class="fas fa-link"></i>aログアウト
+            <% end %>
+  <%#        </li>
+<%#       <% else %>
+<%#          <%= render 'layouts/header' %>
+<%#         <% end %>
+
+        </ul>
+      </div>
+      </div>
+    </nav>
+    </header>
+
     <%= yield %>
   </body>
 </html>
