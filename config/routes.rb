@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-root to: "sample#top"
   devise_for :admins
   devise_for :customers
 
