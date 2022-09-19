@@ -1,8 +1,8 @@
           <a class="text-rigt">
           <li class=" p-1 border  list-group-item ">
-               <%= link_to root_path, class:"nav-link text-dark" do  %>
+  <%#             <%= link_to root_path, class:"nav-link text-dark" do  %>
   <%#             <i class="fas fa-home"></i> %>About
-            <% end %>
+  <%#          <% end %>
           </li>
 
           <li class=" p-1  border  list-group-item ">
@@ -13,14 +13,14 @@
           </li>
 
           <li class=" p-1  border  list-group-item ">
-<%#            <%= link_to , class:'nav-linktext-dark' do %>
-<%#            <i class="fas fa-user-plus"></i>新規登録
+            <%= link_to new_customer_registration_path , class:'nav-linktext-dark' do %>
+              <i class="fas fa-user-plus"></i>新規登録
             <% end %>
           </li>
 
           <li class=" p-1 border  list-group-item ">
-<%#            <%= link_to , class:'nav-link text-dark' do %>
-<%#            <i class="fas fa-sign-in-alt"></i>ログイン
+            <%= link_to new_customer_session_path , class:'nav-link text-dark' do %>
+              <i class="fas fa-sign-in-alt"></i>ログイン
             <% end %>
           </li>
           </a>
