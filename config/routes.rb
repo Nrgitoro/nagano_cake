@@ -10,12 +10,10 @@ Rails.application.routes.draw do
   end
 
   scope module: :public do
-  get 'customers/show'
-  get 'customers/edit'
-  get 'customers/index'
-  get 'customers/new'
+  
   resources :items
 
+  resources :deliveries, only: [:create, :index, :show, :edit, :update, :destroy]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
