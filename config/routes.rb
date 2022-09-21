@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
-  get 'homes/top'
+
   devise_for :admins
   devise_for :customers
-
+  
+  namespace :admin do
+  resources :items
+  
+  end
+  
   namespace :admin do
     resources :items
 
@@ -10,6 +15,8 @@ Rails.application.routes.draw do
 
   scope module: :public do
     root to: "homes#top"
+     get 'homes/top'
+    get 'homes/about'
     resources :items
     resources :orders, only: [:new, :create, :index, :show ]
     post 'orders/confirm' => "orders#confirm"
