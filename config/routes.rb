@@ -9,6 +9,7 @@ devise_for :customers, controllers: {
 }
   
   namespace :admin do
+  
     resources :items, only: [:edit, :index, :new, :show, :create, :update]
     resources :genres, only: [:index,:edit,:create,:update]
     resources :customers, only: [:index,:edit,:show,:update]
@@ -17,6 +18,10 @@ devise_for :customers, controllers: {
 
 
   scope module: :public do
+
+  resources :deliveries, only: [:create, :index, :show, :edit, :update, :destroy]
+  end
+
     root to: "homes#top"
     get 'homes/about'
     resources :items, only: [:index, :show]
@@ -25,6 +30,20 @@ devise_for :customers, controllers: {
     get 'orders/thanks' => "orders#thanks"
   end
   #あとで消す
+
+  namespace :admin do
+  resources :items
+
+  end
+
+  scope module: :public do
+    
+  get 'items/show'
+  get 'items/index'
+    
+  resources :items
+  end
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   end
 
