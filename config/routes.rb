@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: "homes#top"
     resources :items
-    resources :orders, only: [:new, :confirm, :thanks, :create, :index, :show ]
+    resources :orders, only: [:new, :create, :index, :show ]
+    post 'orders/confirm' => "orders#confirm"
+    get 'orders/thanks' => "orders#thanks"
   end
   #あとで消す
   
