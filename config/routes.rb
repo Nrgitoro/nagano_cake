@@ -2,7 +2,12 @@ Rails.application.routes.draw do
 
   devise_for :admins
   devise_for :customers
-
+  
+  namespace :admin do
+  resources :items
+  
+  end
+  
   namespace :admin do
 
   resources :items
@@ -16,7 +21,7 @@ Rails.application.routes.draw do
   end
 
     root to: "homes#top"
-    get to : "homes#about"
+    get 'homes/about'
     resources :items
     resources :orders, only: [:new, :create, :index, :show ]
     post 'orders/confirm' => "orders#confirm"
