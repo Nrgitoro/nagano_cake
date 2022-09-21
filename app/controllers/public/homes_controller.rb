@@ -6,5 +6,5 @@ class Public::HomesController < ApplicationController
     # def index
     #     @items = items.all.order(created_at: :desc)
     # end
-    
+
 end
