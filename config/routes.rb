@@ -10,7 +10,9 @@ devise_for :customers, controllers: {
 
   namespace :admin do
 
+
     resources :items, only: [:index, :new, :show, :edit, :create, :update]
+
     resources :genres, only: [:index,:edit,:create,:update]
     resources :customers, only: [:index,:edit,:show,:update]
 
@@ -19,18 +21,23 @@ devise_for :customers, controllers: {
 
   scope module: :public do
 
-  resources :deliveries, only: [:create, :index, :show, :edit, :update, :destroy]
-
+    get 'orders/confirm' => "orders#confirm"
+    post 'orders/confirm' => "orders#confirm"
+    get 'orders/thanks' => "orders#thanks"
 
     root to: "homes#top"
     get 'homes/about'
+    get 'cart_items/destroy_all' => "cart_items/dstoroy_"
+    resources :cart_items, only: [:create, :index, :update, :destroy]
+    get "/customers/show" => "customers#show", as: "customer"
+    patch 'customers/update' => "customers#update"
+    get 'customers/mypage/edit' => "customers#edit"
+    get 'customers/confirm' => "customers#confirm"
+    patch 'customers/withdrow' => "customers#withdrow"
     resources :items, only: [:index, :show]
     resources :orders, only: [:new, :create, :index, :show ]
-    post 'orders/confirm' => "orders#confirm"
-    get 'orders/thanks' => "orders#thanks"
+    resources :deliveries, only: [:index, :edit, :create, :update]
   end
-  #あとで消す
-
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  end
-
+  
+# For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+end

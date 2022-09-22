@@ -9,7 +9,7 @@ class Public::DeliveriesController < ApplicationController
     @delivery = Delivery.new(deliverie_params)
     @delivery.customer_id = current_customer.id
     @delivery.save
-    redirect_to delivery_path
+    redirect_to '/deliveries'
   end
   
   def show
@@ -31,9 +31,9 @@ class Public::DeliveriesController < ApplicationController
   end
   
   def destroy
-    deliverie = Deliverie.find(params[:id])
-    deliverie.destroy
-    redirect_to '/index'
+    delivery = Delivery.find(params[:id])
+    delivery.destroy
+    redirect_to '/deliveries'
   end
   
   private

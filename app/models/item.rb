@@ -1,9 +1,11 @@
 class Item < ApplicationRecord
-#  enum item_status: { item_sell: 0, item_stop: 1 }
-# belongs_to :genre
 
 
-  #  belongs_to :admin
+
+   #belongs_to :admin
+   #belongs_to :genre
+
+
 
   has_one_attached :item_image
 
