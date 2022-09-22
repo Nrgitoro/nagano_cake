@@ -7,10 +7,10 @@ devise_for :customers, controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
 }
-  
+
   namespace :admin do
-  
-    resources :items, only: [:edit, :index, :new, :show, :create, :update]
+
+    resources :items, only: [:index, :new, :show, :edit, :create, :update]
     resources :genres, only: [:index,:edit,:create,:update]
     resources :customers, only: [:index,:edit,:show,:update]
 
@@ -20,7 +20,7 @@ devise_for :customers, controllers: {
   scope module: :public do
 
   resources :deliveries, only: [:create, :index, :show, :edit, :update, :destroy]
-  
+
 
     root to: "homes#top"
     get 'homes/about'
