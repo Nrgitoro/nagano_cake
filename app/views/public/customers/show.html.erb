@@ -1,2 +1,42 @@
-<h1>Public#showx</h1>
-<p>Find me in app/views/public/index.html.erb</p>
+<h3>マイページ</h3>
+    <tr>
+        <string>登録情報</string>
+        <th><%= link_to "編集する", customers_mypage_edit_path(current_customer), class: "btn btn-outline-secondary btn-block"  %></th>
+    </tr>
+<table class = "table" >
+    
+    <thead>
+        <tr>
+            <p>氏名</p>
+            <%= @customer.name_first %>　<%= @customer.name_second %>
+        </tr>
+        <tr>
+            <p>カナ</p>
+            <%= @customer.name_firdt_rubi %>　<%= @customer.name_second_rubi %>
+        </tr>
+        <tr>
+            <p>郵便番号</p>
+            <%= @customer.post_code %>
+        </tr>
+        <tr>
+            <p>住所</p>
+            <%= @customer.address %>
+        </tr>
+        <tr>
+            <p>電話番号</p>
+            <%= @customer.tel %>
+        </tr>
+        <tr>
+            <p>メールアドレス</p>
+            <%= @customer.email %>
+        </tr>
+    </thead>
+</table>  
+    <tr>
+        <p>配送先</p>
+        <%= link_to "一覧を見る", deliveries_path(current_customer), class: "btn btn-outline-secondary btn-block"  %>
+    </tr>
+    <tr>
+        <p>注文履歴</p>
+        <%= link_to "一覧を見る", orders_path(current_customer), class: "btn btn-outline-secondary btn-block"  %>
+    </tr>
