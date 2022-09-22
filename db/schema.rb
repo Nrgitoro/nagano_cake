@@ -100,6 +100,7 @@ ActiveRecord::Schema.define(version: 2022_09_19_121532) do
     t.string "name", null: false
     t.text "introduction", null: false
     t.integer "price", null: false
+    t.boolean "item_status", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
