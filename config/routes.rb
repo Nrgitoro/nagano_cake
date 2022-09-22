@@ -21,10 +21,10 @@ devise_for :customers, controllers: {
 
     get 'orders/confirm' => "orders#confirm"
     post 'orders/confirm' => "orders#confirm"
-    get 'orders/thanks' => "orders#thanks"
+    get 'orders/about' => "orders#thanks"
     root to: "homes#top"
     get 'homes/about'
-    get 'cart_items/destroy_all' => "cart_items/dstoroy_"
+    delete 'cart_items/destroy_all' => "cart_items/dstoroy_all"
     resources :cart_items, only: [:create, :index, :update, :destroy]
     get "/customers/show" => "customers#show", as: "customer"
     patch 'customers/update' => "customers#update"
@@ -35,6 +35,6 @@ devise_for :customers, controllers: {
     resources :orders, only: [:new, :create, :index, :show ]
     resources :deliveries, only: [:index, :edit, :create, :update]
   end
-  
+
 # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
