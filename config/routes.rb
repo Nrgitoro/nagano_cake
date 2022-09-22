@@ -20,9 +20,11 @@ devise_for :customers, controllers: {
   scope module: :public do
 
   resources :deliveries, only: [:create, :index, :show, :edit, :update, :destroy]
+
     get 'orders/confirm' => "orders#confirm"
     post 'orders/confirm' => "orders#confirm"
     get 'orders/thanks' => "orders#thanks"
+
     root to: "homes#top"
     get 'homes/about'
     get 'cart_items/destroy_all' => "cart_items/dstoroy_"
@@ -33,10 +35,7 @@ devise_for :customers, controllers: {
     #customerconfirmとwithdraw
     resources :items, only: [:index, :show]
     resources :orders, only: [:new, :create, :index, :show ]
-
   end
-  #あとで消す
-
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  end
-
+  
+# For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+end

@@ -1,19 +1,31 @@
+<div class="container">
+ <div class="row">
+  <div class="col-md-8">
 
-<p>ジャンル一覧・追加</p>
+<table class="table table-striped">
+<h5>ジャンル一覧・追加</h5>
 
 <%= form_with model: @Genre,local:true do |f| %>
 <!-- form_withにオプション追記する -->
    <td>ジャンル名</td>
    <td><%= f.text_field :name %></td>
-   <td><%= f.submit '新規登録' %></td>
+   <td><%= f.submit '新規登録',class: "btn btn-success" %></td>
    <% end %>
+</table>
 
- <div>
-   <th>ジャンル</th>
- <% @genres.each do |genre| %>
-   <p></p>
-   <td><%= genre.name %></td>
-   <td><%= link_to"編集する","genres/#{genre.id}/edit" %></td>
+
+<table class="table table-striped">
+    <tr>
+      <th>ジャンル</th>
+      <th></th>
+    </tr>
+<% @genres.each do |genre| %>
+    <tr>
+      <td><%= genre.name %></td>
+      <td><%= link_to"編集する","genres/#{genre.id}/edit",class: "btn btn-success" %></td>
+    </tr>
+<% end %>
+</table>
+   </div>
   </div>
-
- <% end %>
+ </div>
