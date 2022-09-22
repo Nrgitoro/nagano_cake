@@ -1,8 +1,9 @@
-<div class="container"> 
+<div class="container">
  <div class="row">
-  <div class="col-md-8 offset-md-1">
-  <p>会員一覧</p>
-<table class="table table-striped">
+  <div class="col-md-8 offset-md-2">
+
+  <h5>会員一覧</h5>
+    <table class="table table-striped">
       <tr>
       <th>会員ID</th>
       <th>氏名</th>
@@ -12,13 +13,38 @@
    <% @customers.each do |f| %>
       <tr>
         <td><%= f.id %></td>
-        <td><%= link_to f.name_first,admin_customer_path(f.id) %></td>
-<!--下の名前もいれる-->
+<!--モデルに追加-->
+        <td><%= link_to f.full_name,admin_customer_path(f.id),class: "underline" %></td>
         <td><%= f.email %></td>
         <td>(ステータス)</td>
       </tr>
- <% end %>
-  </table>
+　 <% end %>
+   </table>
   </div>
+ </div>
+</div>
+<div class="container">
+ <div class="row">
+  <div class="col-md-8 offset-md-2">
+
+  <h5>会員一覧</h5>
+    <table class="table table-striped">
+      <tr>
+      <th>会員ID</th>
+      <th>氏名</th>
+      <th>メールアドレス</th>
+      <th>ステータス</th>
+     </tr>
+   <% @customers.each do |f| %>
+      <tr>
+        <td><%= f.id %></td>
+<!--モデルに追加-->
+        <td><%= link_to f.full_name,admin_customer_path(f.id),class: "underline" %></td>
+        <td><%= f.email %></td>
+        <td>(ステータス)</td>
+      </tr>
+　 <% end %>
+   </table>
   </div>
-  </div>
+ </div>
+</div>
