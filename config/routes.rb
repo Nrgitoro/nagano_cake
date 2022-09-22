@@ -21,8 +21,12 @@ Rails.application.routes.draw do
     get 'homes/about'
     resources :items, only: [:index, :show]
     resources :orders, only: [:new, :create, :index, :show ]
-    resources :deliveries, only: [:show, :index, :edit, :new, :create, :update]
-    resources :customers, only: [:index,:edit,:show,:update]
+    resources :deliveries, only: [:index, :edit, :create, :update]
+    get "/customers/show" => "customers#show", as: "customer"
+    resources :customers, only: [:index,:update]
+    get "/customers/edit" => "customers#edit", as: "customers/mypage/edit"
+    get 'ustomers/confirm'
+    patch 'customers/withdrow'
     post 'orders/confirm' => "orders#confirm"
     get 'orders/thanks' => "orders#thanks"
   end

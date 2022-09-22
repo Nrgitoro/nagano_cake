@@ -1,41 +1,42 @@
 <h3>マイページ</h3>
-<table class = "table" >
     <tr>
         <string>登録情報</string>
-        <th><%= link_to "編集する", edit_customer_path(.id), class: "btn btn-outline-secondary btn-block" do  %></th>
+        <th><%= link_to "編集する", customers_mypage_edit_path(current_customer), class: "btn btn-outline-secondary btn-block"  %></th>
     </tr>
+<table class = "table" >
+    
     <thead>
         <tr>
             <p>氏名</p>
-            <%#= customers.name_first %>　<%#= customers.name_second %>
+            <%= @customer.name_first %>　<%= @customer.name_second %>
         </tr>
         <tr>
             <p>カナ</p>
-            <%#= customers.name_first_rubi %>　<%#= customers.name_second_rubi %>
+            <%= @customer.name_firdt_rubi %>　<%= @customer.name_second_rubi %>
         </tr>
         <tr>
             <p>郵便番号</p>
-            <%#= customers.post_code %>
+            <%= @customer.post_code %>
         </tr>
         <tr>
             <p>住所</p>
-            <%#= customers.address %>
+            <%= @customer.address %>
         </tr>
         <tr>
             <p>電話番号</p>
-            <%#= customers.tel %>
+            <%= @customer.tel %>
         </tr>
         <tr>
             <p>メールアドレス</p>
-            <%#= customers.email %>
+            <%= @customer.email %>
         </tr>
     </thead>
-    <tr>
-        <string>配送先</string>
-        <%#= link_to "一覧を見る", index_customer_path(.id), class: "btn btn-outline-secondary btn-block" do  %>
-    </tr>
-    <tr>
-        <string>注文履歴</string>
-        <%#= link_to "一覧を見る", index_orders_path(.id), class: "btn btn-outline-secondary btn-block" do  %>
-    </tr>
 </table>  
+    <tr>
+        <p>配送先</p>
+        <%= link_to "一覧を見る", deliveries_path(current_customer), class: "btn btn-outline-secondary btn-block"  %>
+    </tr>
+    <tr>
+        <p>注文履歴</p>
+        <%= link_to "一覧を見る", orders_path(current_customer), class: "btn btn-outline-secondary btn-block"  %>
+    </tr>
