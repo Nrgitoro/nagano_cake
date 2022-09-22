@@ -3,9 +3,7 @@ class Item < ApplicationRecord
 # belongs_to :genre
 
 
-    belongs_to :admin
-
- belongs_to :genre
+ belongs_to :admin
 
 
 has_one_attached :item_image
