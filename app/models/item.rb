@@ -1,12 +1,13 @@
 class Item < ApplicationRecord
 
 
+
    #belongs_to :admin
    #belongs_to :genre
 
 
 
-has_one_attached :item_image
+  has_one_attached :item_image
 
   def get_item_image(width, height)
     unless item_image.attached?
@@ -17,4 +18,3 @@ has_one_attached :item_image
   end
 
 end
-

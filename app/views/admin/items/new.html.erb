@@ -31,26 +31,19 @@
               <%= item.text_field :price, class:"w-75", placeholder:"1000" %>円
             </td>
             <td>
-              <h5>販売ステータス</h5>
-
+             <h5>販売ステータス</h5>
+                  <%= item.radio_button :item_status, 0 %>
+   　   　　　   　    販売中
+                  <%= item.radio_button :item_status, 1 %>
+                  販売停止中
             </td>
           </tr>
-     <%#     <tr>
-       <%#     <%= item.submit '新規登録', class:"btn btn-sm btn-success" %>
-<%#          </tr>  %>
-
-
+               <%= item.submit class: "btn-success" %>
+          <% end %>
                 <div class="form-group">
                   <input type="submit" name="commit" value="新規登録" class="btn btn-success" data-disable-with="新規登録">
                 </div>
-
-          <% end %>
         </tbody>
-
-
     </div>
   </div>
-
-
-</p>
 </div>

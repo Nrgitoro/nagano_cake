@@ -10,7 +10,9 @@ devise_for :customers, controllers: {
 
   namespace :admin do
 
-    resources :items, only: [:edit, :index, :new, :show, :create, :update]
+
+    resources :items, only: [:index, :new, :show, :edit, :create, :update]
+
     resources :genres, only: [:index,:edit,:create,:update]
     resources :customers, only: [:index,:edit,:show,:update]
 
@@ -22,6 +24,7 @@ devise_for :customers, controllers: {
     get 'orders/confirm' => "orders#confirm"
     post 'orders/confirm' => "orders#confirm"
     get 'orders/thanks' => "orders#thanks"
+
     root to: "homes#top"
     get 'homes/about'
     get 'cart_items/destroy_all' => "cart_items/dstoroy_"
