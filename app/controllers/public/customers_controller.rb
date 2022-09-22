@@ -8,14 +8,6 @@ class Public::CustomersController < ApplicationController
     @customer = current_customer
   end
 
-  private
-  def customer_params
-    params.require(:customer).permit(:name_first, :name_second, :name_first_rubi, :name_second_rubi, :address, :email)
-  end
-  
-
-  end
-
   def update
     @customer = current_customer
     @customer.update(customer_params)
