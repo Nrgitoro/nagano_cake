@@ -1,11 +1,11 @@
-<%= @item.image_tag item.image, size: "200x200" %>
+<%= image_tag @item.get_item_image(20,20) %>
+            
+<%= @item.name%>
+            
+<%= @item.introduction %>
+            
+<%= @item. price %>円
+            
+<%#= f.select :quantity, options_for_select(@item, {selected: cart.quantity.to_i} ) %>
 
-<h3><%= @item.name %></h3>
-
-<p><%= @item.body %></p>
-
-<h3><%= @item.price %></h3>
-
-<%= f.select :number,[['1', 1],['2',2],['3',3],['4',4],['5',5]] %>
-
-<%= link_to 'カートに入れる', cart_item_path, class: "btn btn-secondary" %>
+<%= link_to 'カートに入れる', cart_items_path, class: "btn btn-secondary" %>

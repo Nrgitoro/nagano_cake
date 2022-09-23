@@ -1,19 +1,11 @@
 <div class = "container px-5 px-sm-0" >
-<div class = "row" >
-<h3>商品一覧</h3>
-<p>(全<%#= current_admin.items.where.count %>件)</p>
-<% @items.each do |item| %>
-    <% if item.image_tag item.image, size: "200x200" %>
-        <%= image_tag item.image, size: "200x200" %>
-    <% else %>
-        <%= image_tag 'no_image', size: "200x200" %>
-    <% end %>
-    <span>
-        <%= post_image.item_name %>
-    </span>
-    
-    <p><%= post_image.item.price %></p>
-<% end %>
+    <h3>商品一覧</h3>
+    <p>(全 <%#= current_admin.items.count %> 件)</p>
+    <div class = "row" >
+        <% @items.each do |item| %>
+            <%= image_tag item.get_item_image(20,20) %><br>
+            <%= link_to item.name, items_path(item.id) %><br>
+            <%= item.price %>円
+        <% end %>
+    </div>
 </div>
-</div>
-<%#= paginate item_images %>
