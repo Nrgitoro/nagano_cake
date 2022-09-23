@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+      <h2>ショッピングカート</h2>
+      <div class="container">
+        <div class="row">
+        <table class="table table-striped border border-dark">
+          <thead class="bg-secondary bg-gradient">
+          <tr>
+            <th class="border border-dark">商品名</th>
+            <th class="border border-dark">単価(税込み)</th>
+            <th class="border border-dark">数量</th>
+            <th class="border border-dark">小計</th>
+            <th class="border border-dark"></th>
+          </tr>
+        </thead>
+
+        <% @cart_item.each do |item| %>
+        <tbody>
+          <tr>
+            <td></td>
+            <td><%= item.item.name  %></td>
+            <td><%= item.item.price %></td>
+            <td>削除する</td>
+          </tr>
+        </tbody>
+        <% end %>
+      </table>
+      </div>
+      </div>
+     <h5><%= link_to '買い物を続ける', items_path, class: "btn btn-secondary" %></h5>
+      <h5><%= link_to '情報入力に進む', items_path, class: "btn btn-secondary" %></h5>
+    </div>
+  </div>
