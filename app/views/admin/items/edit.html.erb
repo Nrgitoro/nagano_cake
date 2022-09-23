@@ -1,7 +1,36 @@
 <!DOCTYPE html>
 <p id="notice"></p>
-<div class="container px-5 px-sm-0">
-
+<div class="container">
   <div class="row">
-    <div class="col-md-8 offset-md-1">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <h2>商品編集</h2>
+
+      <%= form_with model: @item, url: admin_item_path(@item.id), method: :patch do |item|  %>
+      <tbody>
+        <tr>
+          <th>
+            <span>商品画像</span>
+            <%= item.file_field :item_image, accept: "image/*" %>
+          </th>
+          <th>
+            <span>商品名</sapn>
+            <%= item.text_field :name, class:"w-75" %>
+          </th>
+          <th>
+            <span>商品説明</span>
+            <%= item.text_field :introduction, class:"w-75" %>
+          </th>
+          <th>
+            <span>ジャンル</span>
+          </th>
+          <th>
+            <span>税別価格</span>
+            <%= item.text_field :price, class:"w-75" %>円
+          </th>
+          <%= item.submit '変更を保存', class:"btn btn-success" %>
+        </tr>
+      </tbody>
+      <% end %>
+    </div>
+  </div>
+</div>

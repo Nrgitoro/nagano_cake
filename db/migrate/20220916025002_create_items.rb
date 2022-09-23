@@ -8,7 +8,6 @@ class CreateItems < ActiveRecord::Migration[6.1]
       t.integer :amount, null: false
       t.boolean :item_status, null: false, deault: false
 
-
       t.timestamps
     end
   end
