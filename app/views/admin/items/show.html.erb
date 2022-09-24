@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 <p id="notice"></p>
 <div class="container">
-  <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-      <h2>商品編集</h2>
+ <div class="row">
+   <div class="col-sm-12 col-md-8  px-5 px-sm-0 mx-auto">
+    <table class="table">
+      <h2>商品詳細</h2>
+    </table>
 
-
+            <%= image_tag @item.get_item_image(100,100) %>
       <tbody>
-        <tr>
-          <th>
-            <span>商品画像</span>
-            <%= image_tag @item.get_item_image(20,20) %>
-          </th>
-          <th>
+
             <span>商品名</sapn>
             <%= @item.name%>
           </th>
