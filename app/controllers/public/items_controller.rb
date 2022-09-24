@@ -1,8 +1,15 @@
 class Public::ItemsController < ApplicationController
   def show
-    @items =Item.new
     @item = Item.find(params[:id])
+    @cart_item = CartItem.new
   end
+
+  def create
+    @items = Item.new(list_params)
+    @items.save
+    redirect_to cart_items_path
+  end
+
 
   def index
     @items = Item.all
@@ -11,7 +18,7 @@ class Public::ItemsController < ApplicationController
 
   private
   def list_params
-    params.require(:item).permit(:image, :amount)
+    params.require(:item).permit(:amount)
   end
 
 end
