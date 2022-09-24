@@ -5,6 +5,12 @@ class Public::OrdersController < ApplicationController
     
   end
   
+  def show
+  end
+  
+  def index
+  end
+  
   def confirm
   end
   
