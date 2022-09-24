@@ -1,7 +1,8 @@
 class Admin::ItemsController < ApplicationController
   def index
-    @items =Item.all
+
     @item = Item.find_by(id: params[:id])
+    @items = Item.all.page(params[:page]).per(10)
   end
 
   def new

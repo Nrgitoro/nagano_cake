@@ -21,17 +21,15 @@
         <tbody>
           <tr>
             <td><%= item.id %></td>
-            <td><%= item.name %></td>
-            <td><%= item.price %></td>
+            <td><%= item.name %></p>
+            <td><%= item.price %>円</td>
             <td></td>
             <td>
                 <%= item.item_status ? '販売停止中' : '販売中' %></td>
           </tr>
         </tbody>
             <% end %>
-
+ <%= paginate @items %>
       </table>
-
-
     </div>
   </div>

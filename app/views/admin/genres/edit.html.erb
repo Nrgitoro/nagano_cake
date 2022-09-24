@@ -1,10 +1,21 @@
-<p>ジャンル編集</p>
+<!DOCTYPE html>
+<p id="notice"></p>
+<div class="container">
+ <div class="row">
+   <div class="col-sm-12 col-md-8  px-5 px-sm-0 mx-auto">
+    <table class="table">
+     <h5>ジャンル編集</h5>
+    </table>
 
- <%= form_with model: @genre, url: admin_genre_path(@genre) do |f| %>
+    <table class="table">
 
-<td>ジャンル名</td>
- <%= f.text_field :name %>
- <%= f.submit '変更を保存',class: "btn btn-success" %>
-
-
-<% end %>
+    <td>ジャンル名
+    <%= form_with model: @genre, url: admin_genre_path(@genre) do |f| %>
+    <%= f.text_field :name %>
+    　　<%= f.submit '変更を保存',class: "btn btn-success" %>
+    <% end %>
+    </td>
+    </table>
+   </div>
+ </div>
+</div>
