@@ -13,7 +13,7 @@ class Public::ItemsController < ApplicationController
 
   def index
     @items = Item.all
-    # @item_images = ItemImage.page(paramms[:page])
+    @item = Item.page(params[:page])
   end
 
   private
