@@ -12,7 +12,8 @@
 
   <%= f.radio_button :address, :arleady %>
   <%= f.label :address, "登録済住所から選択", {value: :arleady, style: "display: inline-block;"} %>
-  
+  <%= f.select :delivery_id, options_from_collection_for_select(current_customer.deliveries, :id, :name) %>
+
   <%= f.radio_button :address, :new %>
   <%= f.label :address, "新しいお届け先", {value: :new, style: "display: inline-block;"} %>
   <!--新しいお届け先のform_with-->
