@@ -1,10 +1,10 @@
 <div class = "container px-5 px-sm-0" >
     <h3>商品一覧</h3>
-    <p>(全 <%#= current_admin.items.count %> 件)</p>
+    <p>(全 <%= @items.count %>  件)</p>
     <div class = "row" >
         <% @items.each do |item| %>
             <%= image_tag item.get_item_image(20,20) %><br>
-            <%= link_to item.name, items_path(item.id) %><br>
+            <%= link_to item.name, item_path(item.id) %><br>
             <%= item.price %>円
         <% end %>
     </div>
