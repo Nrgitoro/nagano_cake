@@ -14,6 +14,7 @@ class Public::ItemsController < ApplicationController
   def index
     @items = Item.all
     @item = Item.page(params[:page])
+    @item.limit(8)
   end
 
   private

@@ -1,7 +1,8 @@
 <div class = "container px-5 px-sm-0" >
+    <h3>商品一覧</h3>
+    <p>(全 <%= @items.count %> 件)</p>
 <div class = "row" >
-<h3>商品一覧</h3>
-<p>(全 <%= @items.count %> 件)</p>
+
 <% @items.each do |item| %>
 <%= image_tag item.get_item_image(100,100) %>
 
@@ -11,7 +12,8 @@
 
     <p><%= item.price %>円</p>
     
-<% end %>
+<% end %>    
+    
 </div>
-    <%= paginate @items %>
+    <%= paginate @item %>
 </div>
