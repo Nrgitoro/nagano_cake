@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<p id="notice"></p>
-<div class="container px-5 px-sm-0">
-
-  <div class="row">
-    <div class="col-md-8 offset-md-1">
-        <%#= image_tag path_to_image.item.get_profile_image(100,100) %>
+<div class="container">
+        <%= image_tag 'no_image.jpg' %>
         <p>
             ようこそ、ながのCAKEへ！<br>
             このサイトは、ケーキ販売のECサイトになります。<br>
@@ -12,9 +7,15 @@
             購入には会員登録が必要になります。
         </p>
 
-        <h2>新着商品</h2>
-　      <span><%#= item.title %></span>
-　      <p><%#= )image_tag post_image.item.get_profile_image(100,100 %></p>
-　  </div>
-  </div>
-</div>
+    </div>
+     <h3>新着商品</h3>
+    <div class = "row" >
+        <% @item.each.with_index(1) do |item| %>
+            <tr>
+                <%= image_tag item.get_item_image(200,400) %><br>
+                <%= item.name %><br>
+                <%= item.price %>円
+            </tr>
+        <% end %>
+    </div>
+      <%= link_to '全ての商品を見る>', items_path %>  

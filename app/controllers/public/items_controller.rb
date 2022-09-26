@@ -13,7 +13,8 @@ class Public::ItemsController < ApplicationController
 
   def index
     @items = Item.all
-    # @item_images = ItemImage.page(paramms[:page])
+    @item = Item.page(params[:page])
+    @item.limit(8)
   end
 
   private
