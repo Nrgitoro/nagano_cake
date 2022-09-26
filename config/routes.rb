@@ -34,6 +34,8 @@ get '/' => "homes#top"
     get 'customers/mypage/edit' => "customers#edit"
     get 'customers/confirm' => "customers#confirm"
     patch 'customers/withdrow' => "customers#withdrow"
+    get '/customes/confirm' => "customers#confirm"
+    patch '/customers/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
     resources :items, only: [:index, :show, :create]
     resources :orders, only: [:new, :create, :index, :show ]
     resources :deliveries, only: [:index, :edit, :create, :update]

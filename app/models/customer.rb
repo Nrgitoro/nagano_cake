@@ -8,4 +8,8 @@ class Customer < ApplicationRecord
   def full_name
     self.name_first + self.name_second
   end
+  
+  def active_for_authentication?
+    super && (is_deleted == false)
+  end
 end
