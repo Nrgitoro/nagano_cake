@@ -1,7 +1,10 @@
 class Item < ApplicationRecord
 
+  validates :price, presence: true
+  validates :introduction, presence: true
+  validates :name, presence: true
   #belongs_to :admin
-  #belongs_to :genre
+  belongs_to :genre, optional: true
   has_many :cart_items, dependent: :destroy
   has_one_attached :item_image
 
