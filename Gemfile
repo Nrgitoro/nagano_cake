@@ -59,3 +59,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem "net-smtp"
 gem 'kaminari'
+#enum導入
+gem "enum_help"
+gem 'pry-rails'
