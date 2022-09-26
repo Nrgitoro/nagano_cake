@@ -39,6 +39,7 @@ get '/' => "homes#top"
     resources :items, only: [:index, :show, :create]
     resources :orders, only: [:new, :create, :index, :show ]
     resources :deliveries, only: [:index, :edit, :create, :update]
+    
   end
 
 # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
