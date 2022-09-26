@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 2022_09_19_121532) do
   end
 
   create_table "cart_items", force: :cascade do |t|
+    t.integer "amount", null: false
     t.integer "item_id", null: false
     t.integer "customer_id", null: false
     t.integer "amount", null: false
@@ -63,7 +64,7 @@ ActiveRecord::Schema.define(version: 2022_09_19_121532) do
   create_table "customers", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
+    t.string "encrypted_password"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name_first", null: false

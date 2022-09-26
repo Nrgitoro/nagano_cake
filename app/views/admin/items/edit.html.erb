@@ -4,33 +4,49 @@
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <h2>商品編集</h2>
+<% if @item.errors.any? %>
+  <%= @item.errors.count %>件の未記入がありました
+  <ul>
+    <% @item.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
 
       <%= form_with model: @item, url: admin_item_path(@item.id), method: :patch do |item|  %>
       <tbody>
         <tr>
           <th>
-            <span>商品画像</span>
-            <%= item.file_field :item_image, accept: "image/*" %>
+            <h5>商品画像
+            　<%= item.file_field :item_image, accept: "image/*" %>
+            </h5>
           </th>
           <th>
-            <span>商品名</sapn>
-            <%= item.text_field :name, class:"w-75" %>
+            <h5>商品名
+            　　<%= item.text_field :name, class:"w-75" %>
+            </h5>
           </th>
           <th>
-            <span>商品説明</span>
-            <%= item.text_field :introduction, class:"w-75" %>
+            <h5>商品説明
+            　<%= item.text_field :introduction, class:"w-75" %>
+            </h5>
           </th>
+
           <th>
-            <span>ジャンル</span>
+            <h5>ジャンル
+            　<%= item.collection_select :genre_id, Genre.all, :id, :name, {include_blank: "---"}, class:"w-75" %>
+            </h5>
           </th>
+
           <th>
-            <span>税別価格</span>
-            <%= item.text_field :price, class:"w-75" %>円
+            <h5>税別価格
+            　<%= item.text_field :price, class:"w-75" %>円
+            </h5>
           </th>
+
           <%= item.submit '変更を保存', class:"btn btn-success" %>
-        </tr>
-      </tbody>
       <% end %>
+      </tbody>
     </div>
   </div>
 </div>
