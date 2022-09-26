@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
 
   #belongs_to :admin
-  #belongs_to :genre
+  belongs_to :genre, optional: true
   has_many :cart_items, dependent: :destroy
   has_one_attached :item_image
 
