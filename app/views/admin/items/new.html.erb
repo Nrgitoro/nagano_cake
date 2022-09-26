@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <p id="notice"></p>
-<div class="container px-5 px-sm-0">
-
+<div class="container">
   <div class="row">
-    <div class="col-md-8 offset-md-1">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <h2>商品新規登録</h2>
 
 
+            <%= form_with model: @item, url: admin_items_path, method: :post do |item| %>
         <tbody>
           <tr>
-            <%= form_with model: @item, url: admin_items_path, method: :post do |item| %>
             <td>
               <h5>
               商品画像
@@ -32,7 +31,9 @@
             </td>
 
             <td>
-              <h5>ジャンル</h5>
+              <h5>ジャンル
+              　<%= item.collection_select :genre_id, Genre.all, :id, :name, {include_blank: "---"}, class:"w-75" %>
+              </h5>
             </td>
 
             <td>
@@ -53,7 +54,7 @@
             </td></br>
 
 
-               <%= item.submit '新規登録',class:"btn btn-success" %>
+               <%= item.submit '新規登録', class:"btn btn-success" %>
           <% end %>
         </tbody>
     </div>
