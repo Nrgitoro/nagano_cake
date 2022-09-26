@@ -6,6 +6,7 @@
 
 
 <h3> <%= @customer.full_name %>さんの会員詳細</h3>
+   
 
 　　<table class="table table-striped">
 
@@ -39,7 +40,13 @@
       </tr>
       <tr>
         <td>会員ステータス</td>
-        <td></td>
+        <td>
+          <% if @customer.is_deleted %>
+          <div class="text-secondary">退会</div>
+          <% else %>
+          <div class="text-success">有効</div>
+          <% end %>
+          </td>
       </tr>
   </table>
        <td><%= link_to"編集する",edit_admin_customer_path,class: "btn btn-success" %></td>
