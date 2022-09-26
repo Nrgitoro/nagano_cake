@@ -5,6 +5,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
+    @order = Order.find(params[:id])
   end
 
   def index
@@ -12,7 +13,6 @@ class Public::OrdersController < ApplicationController
 
   def confirm
     @order = Order.new(order_params)
-    @order.payment_method = params[:order][:payment_method]
     @cart_items = current_customer.cart_items
     @total = 0
     if params[:order][:select_address] == "me"
@@ -29,12 +29,33 @@ class Public::OrdersController < ApplicationController
 
   end
 
+  def create
+    cart_items = current_customer.cart_items.all
+    @order = current_customer.orders.new(order_params)
+    if @order.save
+      cart_items.each do |cart|
+        order_detail = OrderDetail.new
+        order_detail.item_id = cart.item_id
+        order_detail.order_id = @order.id
+        order_detail.amount = cart.amount
+        order_detail.price = cart.item.price
+        order_detail.save
+      end
+      redirect_to orders_about_path
+      cart_items.destroy_all
+    else
+      @order = Order.new(order_params)
+      render :new
+    end  
+    
+  end
+
   def thanks
   end
 
   private
   def order_params
-    params.require(:order).permit(:payment_method, :postal_code, :address, :name)
+    params.require(:order).permit(:billing, :payment_method, :postal_code, :address, :name)
   end
 
 end
