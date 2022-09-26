@@ -10,7 +10,7 @@ devise_for :customers, controllers: {
 
   namespace :admin do
 
-
+get '/' => "homes#top"
     resources :items, only: [:index, :new, :show, :edit, :create, :update]
 
     resources :genres, only: [:index,:edit,:create,:update]
