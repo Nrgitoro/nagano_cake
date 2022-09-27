@@ -13,32 +13,6 @@
             <th class="border border-dark">ステータス</th>
             <th class="border border-dark">注文詳細</th>
           </tr>
-        </thead>
-        <% @order.each do |order| %>
-        <tbody>
-          <tr>
-            <th>
-              <%= order.created_at.strftime('%Y/%m/%d') %>
-            </th>
-
-            <th>
-              <%= order.address_display %>
-            </th>
-
-            <th>
-              <%= order.order_details %>
-            </th>
-
-            <th>
-              <%= order.billing %>円
-            </th>
-
-            <th>
-              <%= order.postal_code ? '入金確認' : '発送済み' %>
-            </th>
-          </tr>
-        </tbody>
-        <% end %>
       </table >
     </div>
   </div>

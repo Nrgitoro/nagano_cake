@@ -1,3 +1,7 @@
+<!DOCTYPE html>
+<p id="notice"></p>
+<div class="container">
+    <div class="col-md-8 offset-md-1">
 <%= form_with model:@order, url: orders_confirm_path, method: :post, local: true do |f| %>
 
   <div class="field">
@@ -26,6 +30,6 @@
     <%= f.text_area :address, class: 'form-control order_address' %>
   </div>
   <div class="form-group">
-    <%= f.submit class: 'btn btn-success' %>
+    <%= f.submit 'オーダー一覧へ', class: 'btn btn-success' %>
   </div>
 <% end %>
