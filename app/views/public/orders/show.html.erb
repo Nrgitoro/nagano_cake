@@ -28,8 +28,9 @@
 
             <th class="border border-dark">
               <h5>ステータス</h5>
-
+             <%= @order.order_status %>
             </th><br>
+
           </tr>
           </thead>
         </table>
@@ -74,7 +75,7 @@
             <th class="border border-dark"><%= order_details.amount %></th>
             <th class="border border-dark"><%= order_details.item.with_tax_price*order_details.amount %>円</th>
           </tr>
-  </table>
 <% end %>
+  </table>
   </div>
   </div>
