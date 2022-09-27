@@ -12,6 +12,10 @@ class Item < ApplicationRecord
   def with_tax_price
     (price * 1.1).floor
   end
+  
+  def subtotal
+      self.with_tax_price * amount
+  end
 
   def active_for_authentication?
     super && (item_status == false)

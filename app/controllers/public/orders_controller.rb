@@ -6,11 +6,15 @@ class Public::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @order_details = @order.order_details
+    @total = 0
+    @order_details.each do |order_details|
+      @total = @total+ order_details.item.with_tax_price * order_details.amount
+    end
   end
 
   def index
-    @order = Order.all
-    @order_detail = OrderDetail.all
+    @orders = current_customer.orders
   end
 
   def confirm
