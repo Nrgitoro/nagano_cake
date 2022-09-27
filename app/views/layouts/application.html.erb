@@ -19,7 +19,9 @@
 
 
 
-        <a class="navbar-brand text-dark list-group-item">LOGO</a>
+        <li class=" p-1 border  list-group-item">
+        <%= link_to root_path, class:"nav nav-link text-dark" do %>LOGO<% end %>
+        </li>
         <% if customer_signed_in? %>
 
 
