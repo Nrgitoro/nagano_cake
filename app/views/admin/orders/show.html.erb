@@ -39,15 +39,15 @@
 
 <div class="col-md-8">
    <table class="table table-striped">
-  
-  
-  
+
+
+
   <tr>
     <th>商品名</th>
     <th>単価(税込)</th>
     <th>数量</th>
     <th>小計</th>
-    <th>制作ステータス</th>
+    <th>製作ステータス</th>
     <th></th>
   </tr>
 
@@ -63,7 +63,7 @@
       <td><%= order_item.item.with_tax_price*order_item.amount %></td>
 
       <td>
-     <%= form_with model:@order_items, url: orders_confirm_path, method: :post, local: true do |f| %>
+     <%= form_with model:order_item, url:admin_order_detail_path(order_item), local: true do |f| %>
      <%= f.select :making_status, OrderDetail.making_statuses_i18n.invert, {prompt: false} %>
      </td>
      <td>
