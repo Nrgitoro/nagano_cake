@@ -2,11 +2,14 @@
 <p id="notice"></p>
 <div class="container">
     <div class="col-md-8 offset-md-1">
-        <p>
-            ようこそ、ながのCAKEへ！<br>
-            このサイトは、ケーキ販売のECサイトになります。<br>
-            会員でない方も商品の閲覧はできますが、<br>
-            購入には会員登録が必要になります。
+        <%= image_tag "cake-top.jpg", size:"640×426" %>
+        <p style="position:absolute; top:130px; left:180px; background-color:rgba(0,0,0,0.5); color:#FFF;">
+            <br>
+                ようこそ、ながのCAKEへ！<br>
+                このサイトは、ケーキ販売のECサイトになります。<br>
+                会員でない方も商品の閲覧はできますが、<br>
+                購入には会員登録が必要になります。<br>
+            <br>
         </p>
  </div>
      <h3>新着商品</h3>
@@ -19,7 +22,7 @@
                 </td>
                 <td>
     <div class="pt-5">
-                <h4>商品名　<%= item.name %> </h4>
+                <h4>商品名　<%=link_to item.name, item_path(item.id) %> </h4>
                 </td>
                 <td>
                         <div class="pt-5">
