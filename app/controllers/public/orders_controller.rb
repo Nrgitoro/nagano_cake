@@ -11,6 +11,7 @@ class Public::OrdersController < ApplicationController
     @order_details.each do |order_details|
       @total = @total+ order_details.item.with_tax_price * order_details.amount
     end
+
   end
 
   def index
