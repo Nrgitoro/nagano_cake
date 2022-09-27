@@ -11,12 +11,12 @@ devise_for :customers, controllers: {
   namespace :admin do
 
     get '/' => "homes#top"
-  
-    resources :items, only: [:index, :new, :show, :edit, :create, :update]
 
+    resources :items, only: [:index, :new, :show, :edit, :create, :update]
     resources :genres, only: [:index,:edit,:create,:update]
     resources :customers, only: [:index,:edit,:show,:update]
     resources :orders, only: [:show,:update]
+    resources :order_details, only: [:update]
   end
 
 
@@ -40,7 +40,7 @@ devise_for :customers, controllers: {
     resources :items, only: [:index, :show, :create]
     resources :orders, only: [:new, :create, :index, :show ]
     resources :deliveries, only: [:index, :edit, :create, :update]
-    
+
   end
 
 # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
