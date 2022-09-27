@@ -39,7 +39,7 @@ devise_for :customers, controllers: {
     patch '/customers/withdrawal' => 'customers#withdrawal', as: 'withdrawal'
     resources :items, only: [:index, :show, :create]
     resources :orders, only: [:new, :create, :index, :show ]
-    resources :deliveries, only: [:index, :edit, :create, :update]
+    resources :deliveries, only: [:index, :edit, :create, :update, :destroy]
 
   end
 
