@@ -9,6 +9,8 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
+    @order = Order.all
+    @order_detail = OrderDetail.all
   end
 
   def confirm
@@ -46,8 +48,8 @@ class Public::OrdersController < ApplicationController
     else
       @order = Order.new(order_params)
       render :new
-    end  
-    
+    end
+
   end
 
   def thanks
