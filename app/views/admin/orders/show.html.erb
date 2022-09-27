@@ -36,11 +36,16 @@
     <th>数量</th>
     <th>小計</th>
   </tr>
-  
+
   <td><% @order_items.each do |order_item| %></td>
-  <tr>
-    <th><%= order_item.item.name %></th>
-  </tr>
+  <tbody>
+    <tr>
+      <td><%= order_item.item.name %></td>
+      <td><%= order_item.item.with_tax_price %>円</td>
+      <td><%= order_item.amount %></td>
+      <td><%= order_item.item.with_tax_price*order_item.amount %></td>
+    </tr>
+  </tbody>
   <% end %>
 
 </table>
