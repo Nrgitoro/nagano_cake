@@ -2,13 +2,13 @@
 <div class="container px-5 px-sm-0">
 
   <div class="row">
-    <div class="col-md-8 offset-md-1">
+    <div class="col-md-10">
 
 
 <h3>注文履歴詳細</h3>
 
 
-　　<table class="table table-striped">
+　　<table class="table">
 
       <tr>
         <td>購入者</td>
@@ -27,14 +27,20 @@
         <td><%= @order.customer.address %></td>
       </tr>
   </table>
+  </div>
 
-
-   <table class="table">
+<div class="col-md-8">
+   <table class="table table-striped">
+  
+  
+  
   <tr>
     <th>商品名</th>
     <th>単価(税込)</th>
     <th>数量</th>
     <th>小計</th>
+    <th>制作ステータス</th>
+    <th></th>
   </tr>
 
   <td><% @order_items.each do |order_item| %></td>
@@ -44,8 +50,17 @@
       <td><%= order_item.item.with_tax_price %>円</td>
       <td><%= order_item.amount %></td>
       <td><%= order_item.item.with_tax_price*order_item.amount %></td>
+
+      <td>
+     <%= form_with model:@order_items, url: orders_confirm_path, method: :post, local: true do |f| %>
+     <%= f.select :making_status, OrderDetail.making_statuses_i18n.invert, {prompt: false} %>
+     </td>
+     <td>
+       <%= f.submit "更新" %>
+     </td>
     </tr>
   </tbody>
+  <% end %>
   <% end %>
 
 </table>
