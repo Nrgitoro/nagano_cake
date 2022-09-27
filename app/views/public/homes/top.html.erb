@@ -1,5 +1,7 @@
+<!DOCTYPE html>
+<p id="notice"></p>
 <div class="container">
-
+    <div class="col-md-8 offset-md-1">
         <p>
             ようこそ、ながのCAKEへ！<br>
             このサイトは、ケーキ販売のECサイトになります。<br>
@@ -8,15 +10,25 @@
         </p>
  </div>
      <h3>新着商品</h3>
-    <div class = "row" >
+      <table class="table  table-inverse">
+　<div calss="row">
         <% @item.each.with_index(1) do |item| %>
             <tr>
-                <%= image_tag item.get_item_image(100,100) %><br>
-                <%= item.name %><br>
-                <%= item.price %>円
+                <td>
+                <%= image_tag item.get_item_image(250,250) %>
+                </td>
+                <td>
+    <div class="pt-5">
+                <h4>商品名　<%= item.name %> </h4>
+                </td>
+                <td>
+                        <div class="pt-5">
+                <h4>価格　<%= item.price %>円</h4>
+                </td>
             </tr>
         <% end %>
+        <tr><%= link_to '<全ての商品を見る>', items_path %></tr>
+        </table>
     </div>
-<%= link_to '全ての商品を見る>', items_path %>  
-   
+
 

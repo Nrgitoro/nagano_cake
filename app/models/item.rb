@@ -17,6 +17,10 @@ class Item < ApplicationRecord
       self.with_tax_price * amount
   end
 
+  def active_for_authentication?
+    super && (item_status == false)
+  end
+
   def get_item_image(width, height)
     unless item_image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpg')
