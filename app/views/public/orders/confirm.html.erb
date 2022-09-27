@@ -15,7 +15,7 @@
 
   <tr>
     <% @cart_items.each do |cart_item| %>
-    <th><%= cart_item.item.name %></th>
+    <th><%= image_tag cart_item.item.get_item_image(50,50) %><%= cart_item.item.name %></th>
     <th><%= cart_item.item.with_tax_price %>円</th>
     <th><%= cart_item.amount %></th>
     <th><%= cart_item.subtotal %>円</th>
