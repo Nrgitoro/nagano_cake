@@ -2,7 +2,7 @@
 <p id="notice"></p>
 　<div calss="row">
     <div class="col-md-8 offset-md-1">
-      <h2>商品一覧</h2>
+      <h2>商品一覧　　　　　　　<%= link_to '新しい商品', new_admin_item_path %></h2>
       <table class="table  table-inverse">
 
 
@@ -20,7 +20,9 @@
         <tbody>
           <tr>
             <td><%= item.id %></td>
-            <td><%= item.name %></p>
+            <td><%= link_to admin_item_path(item) do %>
+                  <%= item.name %>
+                <% end %></td>
             <td><%= item.price %>円</td>
             <td><%= item.genre.name if item.genre.present? %></td>
             <td>
