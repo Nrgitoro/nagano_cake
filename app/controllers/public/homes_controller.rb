@@ -1,10 +1,7 @@
 class Public::HomesController < ApplicationController
     
     def top
+        @item = Item.all.order(created_at: :desc).page(params[:page]).per(4)
     end
     
-    # def index
-    #     @items = items.all.order(created_at: :desc)
-    # end
-
 end

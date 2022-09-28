@@ -1,5 +1,12 @@
 <h2><%= @customer.full_name %>さんの会員情報編集</h2>
-
+<% if @customer.errors.any? %>
+  <%= @customer.errors.count %>件の未記入がありました
+  <ul>
+    <% @customer.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
   <%= form_with model: @customer, url: admin_customer_path(@customer), method: :patch do |f| %>
 
 
@@ -44,7 +51,13 @@
       <%= f.email_field :email %>
     </div>
 
-    <div>会員ステータス</div>
+    <div class="field">
+      <%= f.label :会員ステータス %>
+    　<%= f.radio_button :is_deleted, true %>
+    　<%= f.label :is_deleted, "退会", {value: :true, style: "display: inline-block;"} %>
+    　<%= f.radio_button :is_deleted, false %>
+      <%= f.label :is_deleted, "有効", {value: :false, style: "display: inline-block;"} %>
+    </div>
 
 
     <div class="actions">

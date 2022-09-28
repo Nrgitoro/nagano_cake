@@ -1,12 +1,24 @@
 class Item < ApplicationRecord
 
+  validates :price, presence: true
+  validates :introduction, presence: true
+  validates :name, presence: true
   #belongs_to :admin
-  #belongs_to :genre
+  belongs_to :genre, optional: true
   has_many :cart_items, dependent: :destroy
+  has_many :order_details
   has_one_attached :item_image
 
   def with_tax_price
     (price * 1.1).floor
+  end
+  
+  def subtotal
+      self.with_tax_price * amount
+  end
+
+  def active_for_authentication?
+    super && (item_status == false)
   end
 
   def get_item_image(width, height)

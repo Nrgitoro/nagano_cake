@@ -1,16 +1,37 @@
+<!DOCTYPE html>
+<p id="notice"></p>
 <div class="container">
-  
-        <%#= image_tag path_to_image.item.get_profile_image(100,100) %>
-        <p>
-            ようこそ、ながのCAKEへ！<br>
-            このサイトは、ケーキ販売のECサイトになります。<br>
-            会員でない方も商品の閲覧はできますが、<br>
-            購入には会員登録が必要になります。
+    <div class="col-md-8 offset-md-1">
+        <%= image_tag "cake-top.jpg", size:"640×426" %>
+        <p style="position:absolute; top:130px; left:180px; background-color:rgba(0,0,0,0.5); color:#FFF;">
+            <br>
+                ようこそ、ながのCAKEへ！<br>
+                このサイトは、ケーキ販売のECサイトになります。<br>
+                会員でない方も商品の閲覧はできますが、<br>
+                購入には会員登録が必要になります。<br>
+            <br>
         </p>
- 
-        <h2>新着商品</h2>
-　      <span><%#= item.title %></span>
-　      <p><%#= )image_tag post_image.item.get_profile_image(100,100 %></p>
-</div>
+ </div>
+     <h3>新着商品</h3>
+      <table class="table  table-inverse">
+　<div calss="row">
+        <% @item.each.with_index(1) do |item| %>
+            <tr>
+                <td>
+                <%= image_tag item.get_item_image(250,250) %>
+                </td>
+                <td>
+    <div class="pt-5">
+                <h4>商品名　<%=link_to item.name, item_path(item.id) %> </h4>
+                </td>
+                <td>
+                        <div class="pt-5">
+                <h4>価格　<%= item.price %>円</h4>
+                </td>
+            </tr>
+        <% end %>
+        <tr><%= link_to '<全ての商品を見る>', items_path %></tr>
+        </table>
+    </div>
 
 

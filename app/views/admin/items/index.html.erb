@@ -22,9 +22,14 @@
             <td><%= item.id %></td>
             <td><%= item.name %></p>
             <td><%= item.price %>円</td>
-            <td></td>
+            <td><%= item.genre.name if item.genre.present? %></td>
             <td>
-                <%= item.item_status ? '販売停止中' : '販売中' %></td>
+              <% if item.item_status %>
+              <div class="text-secondary">販売停止中</div>
+              <% else %>
+              <div class="text-success">販売中</div>
+              <% end %>
+            </td>
           </tr>
         </tbody>
             <% end %>

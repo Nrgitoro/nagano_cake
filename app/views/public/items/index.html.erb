@@ -1,16 +1,36 @@
-<div class = "container px-5 px-sm-0" >
-<div class = "row" >
-<h3>商品一覧</h3>
-<p>(全 <%# current_admin.items.where.count %> 件)</p>
-<% @items.each do |item| %>
-<%= image_tag item.get_item_image(100,100) %>
+<!DOCTYPE html>
+<p id="notice"></p>
+<div class="container">
+    <div class="col-md-8 offset-md-1">
+    <h3>商品一覧</h3>
 
-    <span>
-        <%= item.name %>
-    </span>
+      <table class="table  table-inverse">
+　<div calss="row">
 
-    <p><%= item.price %></p>
-<% end %>
+    <p>(全 <%= @items.count %> 件)</p>
+        <% @items.each do |item| %>
+            <tr>
+              <td>
+                <%= image_tag item.get_item_image(100,100) %>
+              </td>
+              <td>
+                      <div class="pt-1">
+                <h5>商品名</h5>
+                <%= link_to item.name, item_path(item.id) %>
+              </td>
+              <td>
+                                        <div class="pt-1">
+                 <h5>商品説明</h5>
+                 <%= item.introduction %>
+              </td>
+              <td>
+                <div class="pt-5">
+                <h5>価格<%= item.price %>円</h5>
+              </td>
+
+            </tr>
+        <% end %>
+
+    </div>
+    <%= paginate @items %>
 </div>
-</div>
-<%#= paginate item_images %>

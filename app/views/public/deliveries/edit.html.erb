@@ -1,12 +1,15 @@
+<!DOCTYPE html>
+<p id="notice"></p>
+<div class="container">
 <h3>配送先編集</h3>
 <tr>
-    <%= form_with model: @delivery, url: edit_delivery_path(@delivery.id), method: :patch do |f| %>
-        <p>郵便番号(ハイフンなし)</p>
-        <%= f.text_field :postal_code %>
-        <p>住所</p>
-        <%= f.text_field :address %> 
-        <p>宛名</p>
-        <%= f.text_field :name %>
-        <%= f.submit '変更内容を保存', class:"btn btn-success data-disable-with mt-4" %>
+    <%= form_with model: @delivery, url: delivery_path(@delivery.id), method: :patch do |f| %>
+        郵便番号（ハイフンなし）　　　<%= f.text_field :postal_code %><br>
+        <p></p>
+        住所　　　　　　　　　　　　　<%= f.text_field :address %> <br>
+        <p></p>
+        宛名　　　　　　　　　　　　　<%= f.text_field :name %>
+        　　　　<%= f.submit '変更内容を保存', class:"btn btn-success data-disable-with mt-4" %>
     <% end %>
 </tr>
+</div>

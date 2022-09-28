@@ -1,42 +1,45 @@
 <h3>マイページ</h3>
     <tr>
         <string>登録情報</string>
-        <th><%= link_to "編集する", customers_mypage_edit_path(current_customer), class: "btn btn-outline-secondary btn-block"  %></th>
+        <th><%= link_to "編集する", customers_mypage_edit_path(current_customer), class: "btn btn-success"  %></th>
     </tr>
 <table class = "table" >
     
     <thead>
-        <tr>
-            <p>氏名</p>
-            <%= @customer.name_first %>　<%= @customer.name_second %>
-        </tr>
-        <tr>
-            <p>カナ</p>
-            <%= @customer.name_firdt_rubi %>　<%= @customer.name_second_rubi %>
-        </tr>
-        <tr>
-            <p>郵便番号</p>
-            <%= @customer.post_code %>
-        </tr>
-        <tr>
-            <p>住所</p>
-            <%= @customer.address %>
-        </tr>
-        <tr>
-            <p>電話番号</p>
-            <%= @customer.tel %>
-        </tr>
-        <tr>
-            <p>メールアドレス</p>
-            <%= @customer.email %>
-        </tr>
+      <tr>
+        <td>氏名</td>
+        <td><%= @customer.name_first %> <%= @customer.name_second %></td>
+      </tr>
+      <tr>
+        <td>フリガナ</td>
+        <td><%= @customer.name_firdt_rubi %> <%= @customer.name_second_rubi %></td>
+      </tr>
+       <tr>
+        <td>郵便番号</td>
+        <td><%= @customer.post_code %></td>
+      </tr>
+      <tr>
+        <td>住所</td>
+        <td><%= @customer.address %></td>
+      </tr>
+      <tr>
+        <td>電話番号</td>
+        <td><%= @customer.tel %></td>
+      </tr>
+      <tr>
+        <td>メールアドレス</td>
+        <td><%= @customer.email %></td>
+      </tr>
     </thead>
 </table>  
     <tr>
-        <p>配送先</p>
-        <%= link_to "一覧を見る", deliveries_path(current_customer), class: "btn btn-outline-secondary btn-block"  %>
+        配送先　　　
+        <%= link_to "　一覧を見る　", deliveries_path(current_customer), class: "btn btn-primary"  %>
     </tr>
+    <p></p>
     <tr>
-        <p>注文履歴</p>
-        <%= link_to "一覧を見る", orders_path(current_customer), class: "btn btn-outline-secondary btn-block"  %>
+      <p>
+        注文履歴　　
+        <%= link_to "　一覧を見る　", orders_path(current_customer), class: "btn btn-primary"  %>
+      </p>
     </tr>
