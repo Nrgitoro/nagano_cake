@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<p id="notice"></p>
+<div class="container">
+      <h2>商品詳細</h2>
+</div>
+
+<div class="container">
+  <div class="row">
+      <div>
+      <%= image_tag @item.get_item_image(150,150) %>
+      </div>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+
+
+
+      <tbody>
+        <tr>
+          <td>
+            <h5>
+            商品名名
+            <%= @item.name%>
+            </h5>
+          </td>
+
+          <td>
+            <h5>商品説明
+            <%= @item.introduction %>
+            </h5>
+          </td>
+
+          <td>
+            <h5>ジャンル
+            <%= @item.genre.name if @item.genre.present? %>
+            </h5>
+          </td>
+        <td>&nbsp;</td>
+          <td>
+            <h5>税別価格
+            <%= @item.price %>円
+            </h5>
+          </td>
+
+          <td>
+            <h5>販売ステータス
+            <%= @item.item_status ? '販売停止中' : '販売中' %>
+            </h5>
+          </td>
+          <td>
+          　<%= link_to '商品を編集する', edit_admin_item_path, class:"btn btn-success" %>
+          </td>
+        </tr>
+      </tbody>
+    </div>
+  </div>
+</div>

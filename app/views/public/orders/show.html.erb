@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<p id="notice"></p>
+<div class="container">
+ <div class="row">
+<table class="table table-striped">
+  <h2>注文詳細履歴</h2>
+</table>
+      <div class="container">
+        <div class="row">
+      <table class="table  border border-dark">
+          <thead class=" bg-gradient">
+          <tr>
+            <th class="border border-dark">注文情報</th>
+            <th class="border border-dark">
+            <h5>注文日</h5>
+            <%= @order.created_at.strftime('%Y/%m/%d') %>
+            </th><br>
+
+            <th class="border border-dark">
+            <h5>配達先</h5>
+            <%= @order.address_display %>
+            </th><br>
+
+            <th class="border border-dark">
+            <h5>支払方法</h5>
+            <%= @order.payment_method %>
+            </th><br>
+
+            <th class="border border-dark">
+              <h5>ステータス</h5>
+             注文待ち
+            </th><br>
+
+          </tr>
+          </thead>
+        </table>
+
+      <table class="table  border border-dark">
+          <thead class="bg-gradient">
+          <tr>
+            <th class="border border-dark">請求情報</th>
+            <th class="border border-dark">
+              <h5>商品合計</h5>
+              <%= @total %>円
+              </th><br>
+
+            <th class="border border-dark">
+              <h5>配送料</h5>
+              800円
+              </th><br>
+
+            <th class="border border-dark">
+              <h5>ご請求額</h5>
+              <%= @order.billing %>円
+              </th><br>
+          </tr>
+          </tbody>
+        </table>
+
+        <table class="table  border border-dark">
+           注文内容
+          <thead class="bg-gradient">
+          <tr class="border border-dark">
+          <tr>
+            <th class="border border-dark">商品</th>
+            <th class="border border-dark">単価（税別）</th>
+            <th class="border border-dark">個数</th>
+            <th class="border border-dark">小計</th>
+          </tr>
+          </thead>
+<% @order_details.each do |order_details| %>
+          <tr>
+            <th class="border border-dark"><%= order_details.item.name %></th>
+            <th class="border border-dark"><%= order_details.item.with_tax_price %>円</th>
+            <th class="border border-dark"><%= order_details.amount %></th>
+            <th class="border border-dark"><%= order_details.item.with_tax_price*order_details.amount %>円</th>
+          </tr>
+<% end %>
+  </table>
+  </div>
+  </div>

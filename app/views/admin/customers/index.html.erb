@@ -1,0 +1,46 @@
+<div class="container">
+ <div class="row">
+  <div class="col-md-8 offset-md-2">
+
+  <h5>会員一覧</h5>
+    <table class="table table-striped">
+      <tr>
+      <th>会員ID</th>
+      <th>氏名</th>
+      <th>メールアドレス</th>
+      <th>ステータス</th>
+     </tr>
+   <% @customers.each do |f| %>
+      <tr>
+        <td><%= f.id %></td>
+<!--モデルに追加-->
+        <td><%= link_to f.full_name,admin_customer_path(f.id),class: "underline" %></td>
+        <td><%= f.email %></td>
+        <td>
+          <% if f.is_deleted %>
+          <div class="text-secondary">退会</div>
+          <% else %>
+          <div class="text-success">有効</div>
+          <% end %>
+        </td>
+      </tr>
+　 <% end %>
+   </table>
+  </div>
+ </div>
+</div>
+<headder class="fixed-bottom">
+<nav aria-label="Page navigation">
+  <ul class="pagination justify-content-center">
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#">Next ></a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="#">Last >></a>
+    </li>
+  </ul>
+</nav>
+</headder>
